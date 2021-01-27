@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { ApiService } from 'src/app/core/services/api.service';
+import {EmailService} from '../home/service/home.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +9,38 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  createTaskForm: FormGroup;
+  constructor(private emailService:EmailService) {}
 
+
+  ngOnInit(){
+    // this.userForm = this.formBuilder.group({
+    
+    //    duration: 'duration',
+    //    name:'name',
+    //    email:'email',
+    //    contact:'contact',
+    //    address: 'address'
+     
+    // })
+
+    this.createTaskForm = new FormGroup({
+      noOfFlavour: new FormControl("", [Validators.required]),
+      duration: new FormControl("", [Validators.required]),
+      name: new FormControl("", [Validators.required]),
+      email: new FormControl("", [Validators.required]),
+      contact: new FormControl(""),
+      address: new FormControl("", [Validators.required]),
+    });
+  }
+
+  sendMail(){
+      console.log(this.createTaskForm.value);
+      debugger;
+      this.emailService.sendMail(this.createTaskForm.value.noOfFlavour,this.createTaskForm.value.duration,
+        this.createTaskForm.value.name,this.createTaskForm.value.email,this.createTaskForm.value.contact,
+        this.createTaskForm.value.address).subscribe((result:any)=>{
+          console.log(result);
+        })
+  }
 }

@@ -6,15 +6,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
  
   <div id="container">
     <ion-card>   
       <ion-card-content>
-       
+      
+        <form [formGroup]="createTaskForm">
+
         <div>
           <ion-label><b>Number of Flavours</b></ion-label>
-          <ion-select class="input-field" interface="popover" placeholder="Flavours">
+          <ion-select class="input-field" interface="popover" formControlName="noOfFlavour" placeholder="Flavours">
             <ion-select-option>1</ion-select-option>
             <ion-select-option>2</ion-select-option>
             <ion-select-option>3</ion-select-option>
@@ -24,7 +26,7 @@
         
        <div>
         <ion-label><b>Duration</b></ion-label>
-        <ion-select class="input-field" interface="popover" placeholder="Duration">
+        <ion-select class="input-field" interface="popover" formControlName="duration" placeholder="Duration">
           <ion-select-option>Half Day</ion-select-option>
           <ion-select-option>24 Hours</ion-select-option>
         </ion-select>
@@ -34,24 +36,32 @@
 
        <div>
         <ion-label><b>Name</b></ion-label>
-        <ion-input class="input-field" type="text"></ion-input>
+        <ion-input class="input-field" formControlName="name" type="text"></ion-input>
+       </div>
+         
+
+       <div>
+        <ion-label><b>Email</b></ion-label>
+        <ion-input class="input-field" formControlName="email" type="email"></ion-input>
        </div>
          
 
      <div>
       <ion-label><b>Contact</b></ion-label>
-      <ion-input class="input-field" type="number"></ion-input>
+      <ion-input class="input-field" formControlName="contact" type="number"></ion-input>
      </div>
           
       
       <div>
         <ion-label><b>Address</b></ion-label>
-        <ion-input class="input-field" type="address"></ion-input>
+        <ion-input class="input-field" formControlName="address" type="address"></ion-input>
       </div>
           
     <div class="submit">
-      <ion-button  mode="ios"  class="updateProfile-btn" size="small" color="primary">Submit</ion-button>
+      <ion-button  mode="ios" (click)="sendMail()"  class="updateProfile-btn" size="small" color="primary">Submit</ion-button>
     </div>
+
+  </form>
       </ion-card-content>
     </ion-card>
  
