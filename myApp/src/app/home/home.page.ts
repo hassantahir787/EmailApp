@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { ApiService } from 'src/app/core/services/api.service';
 import {EmailService} from '../home/service/home.service';
+import { ToastService } from './service/toast.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,7 +11,7 @@ import {EmailService} from '../home/service/home.service';
 export class HomePage {
 
   createTaskForm: FormGroup;
-  constructor(private emailService:EmailService) {}
+  constructor(private emailService:EmailService,private toastService: ToastService) {}
 
 
   ngOnInit(){
@@ -41,6 +42,16 @@ export class HomePage {
         this.createTaskForm.value.name,this.createTaskForm.value.email,this.createTaskForm.value.contact,
         this.createTaskForm.value.address).subscribe((result:any)=>{
           console.log(result);
+          if(result.success==true){
+            this.toastService.successToast("Email has been sent successfully");
+            this.createTaskForm.reset();
+          }
         })
+
+      // this.emailService.sendMaillll().subscribe((result:any)=>{
+      //     console.log(result);
+      //   })
+
+
   }
 }
