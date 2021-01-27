@@ -42,5 +42,11 @@ export class HomePage {
         this.createTaskForm.value.address).subscribe((result:any)=>{
           console.log(result);
         })
+
+      // this.emailService.sendMaillll().subscribe((result:any)=>{
+      //     console.log(result);
+      //   })
+
+
   }
 }

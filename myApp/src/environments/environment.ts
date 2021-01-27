@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   config: {
      //backend_url: "http://localhost:3006/"
-     backend_url: "http://192.168.18.59:3000/"
+     backend_url: "http://192.168.18.59:3000"
 }
 };
 

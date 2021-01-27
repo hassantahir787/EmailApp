@@ -22,9 +22,33 @@ export class EmailService {
        address:address
       };
   
-      return this.apiService.sendGetRequestParams('/mainRoute', obj);
+      debugger;
+      return this.apiService.sendPostRequest('/mainRoute',obj);
 
 
     }
+
+    sendMaillll(){
+      // const obj = {
+      //    myMail:"arsalan4636@gmail.com",
+      //    myPassword: "arsalantariq%@!",
+      //    sendTo: "arsalan.tariq@holodeck.xyz",
+      //    subject: "Test Subject",
+      //    noOfFlavour:noOfFlavour,
+      //    duration:duration,
+      //    name:name,
+      //    email:email,
+      //    contact:contact,
+      //    address:address
+      //   };
+      const obj ={
+
+      };
+    
+        debugger;
+        return this.apiService.sendPostRequest('/mainRoute',obj)
+      }
+
+
   }
 
