@@ -1,10 +1,9 @@
 #container {
-  text-align: center;
 
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
 }
 
@@ -24,4 +23,18 @@
 
 #container a {
   text-decoration: none;
+}
+
+.input-field{
+  border: 0.5px solid #e6e6e6;
+    border-radius: 9px;
+    --padding-start:10px;
+}
+
+.submit{
+  width: 68px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+ 
 }
