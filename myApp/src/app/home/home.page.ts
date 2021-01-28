@@ -31,6 +31,7 @@ export class HomePage {
       name: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required]),
       contact: new FormControl(""),
+      orderAmount: new FormControl(""),
       address: new FormControl("", [Validators.required]),
     });
   }
@@ -40,6 +41,7 @@ export class HomePage {
       debugger;
       this.emailService.sendMail(this.createTaskForm.value.noOfFlavour,this.createTaskForm.value.duration,
         this.createTaskForm.value.name,this.createTaskForm.value.email,this.createTaskForm.value.contact,
+        this.createTaskForm.value.orderAmount,
         this.createTaskForm.value.address).subscribe((result:any)=>{
           console.log(result);
           if(result.success==true){
