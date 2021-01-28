@@ -11,8 +11,8 @@ export class EmailService {
   sendMail(noOfFlavour,duration,name,email,contact,orderAmount,address){
     // const obj = {
     //    myMail:"arsalan4636@gmail.com",
-    //    myPassword: "arsalantariq%@!",
-    //    sendTo: "arsalan.tarfiq@holodeck.xyz",
+    //    
+    //    
     //    subject: "Test Subject",
     //    noOfFlavour:noOfFlavour,
     //    duration:duration,
@@ -25,10 +25,7 @@ export class EmailService {
 
       const formData = new FormData();
 
-      // formData.append("myMail","arsalan4636@gmail.com");
-      // formData.append("myPassword", "arsalantariq%@!");
-      // formData.append("sendTo", "arsalan.tarfiq@holodeck.xyz");
-      // formData.append("subject", "Test Subject");
+
       formData.append("noOfFlavour", noOfFlavour);
       formData.append("duration", duration);
       formData.append("name", name);
